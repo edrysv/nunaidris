@@ -22,37 +22,34 @@
     <!-- Font Awesome для иконок -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Пользовательские CSS-переменные для цветовой палитры и стиля */
+        /* Пользовательские CSS-переменные для новой цветовой палитры и стиля */
         :root {
-            --color-primary: #1C1C1C; /* Очень темный угольный, почти черный, но с легкой теплотой */
-            --color-secondary: #F8F5EF; /* Мягкий, теплый кремовый/почти белый, более гостеприимный */
-            --color-accent-gold: #C0A06A; /* Более насыщенный, слегка яркий золотой, роскошный */
-            --color-accent-beige: #E6DBCF; /* Теплый, слегка темнее бежевый, хороший для границ/подложек */
-            --color-text-dark: #333333; /* Более мягкий темный серый для основного текста, менее резкий */
-            --color-text-light: #FFFFFF; /* Чистый белый для контраста на темных фонах */
-            --shadow-subtle: 0 4px 15px rgba(0, 0, 0, 0.08); /* Уточненная, более тонкая и рассеянная тень */
-            --border-radius-lg: 0.75rem; /* Уменьшенный радиус для более утонченных, современных форм */
-
-            /* Новые цвета для более богатого золота */
-            --color-deep-gold: #B8860B; /* Глубокий, насыщенный золотой */
-            --color-light-gold: #D4AF37; /* Более светлый, но благородный золотой */
+            --color-primary: #1F2833; /* Глубокий угольно-синий для заголовков, текста */
+            --color-secondary: #F7F7F7; /* Чистый, очень светлый бежево-серый для фона */
+            --color-accent-gold: #A0864B; /* Насыщенное, приглушенное золото */
+            --color-accent-beige: #D5D5D5; /* Мягкий светло-серый для границ */
+            --color-text-dark: #333333; /* Стандартный темно-серый для основного текста */
+            --color-text-light: #F0F0F0; /* Мягкий белый для контраста на темных фонах */
+            --shadow-subtle: 0 6px 20px rgba(0, 0, 0, 0.08); /* Чуть более выраженная, но мягкая тень */
+            --border-radius-lg: 0.75rem; /* Стандартный радиус скругления */
         }
 
         html, body {
-            height: 100%; /* Убедимся, что HTML и body занимают всю высоту */
+            height: 100%;
         }
 
         body {
             font-family: 'Source Sans 3', sans-serif;
             color: var(--color-text-dark);
             background-color: var(--color-secondary);
-            overflow-x: hidden; /* Предотвращаем горизонтальный скролл */
+            overflow-x: hidden;
             line-height: 1.8; /* Увеличено межстрочное расстояние для максимальной читаемости */
             letter-spacing: 0.02em; /* Немного уменьшено межбуквенное расстояние для элегантности */
-            text-rendering: optimizeLegibility; /* Для лучшего рендеринга текста */
-            -webkit-font-smoothing: antialiased; /* Для сглаживания шрифтов на WebKit */
-            -moz-osx-font-smoothing: grayscale; /* Для сглаживания шрифтов на Firefox */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
+
         /* Стиль для предотвращения скролла body при открытых модальных окнах */
         body.modal-open {
             overflow: hidden; /* Запрещает прокрутку содержимого body */
@@ -64,6 +61,7 @@
             color: var(--color-primary);
             line-height: 1.2;
             letter-spacing: 0.05em; /* Более выраженное, но не избыточное межбуквенное расстояние для заголовков */
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.05); /* Мягкая тень для заголовков */
         }
         .text-primary { color: var(--color-primary); }
         .text-accent-gold { color: var(--color-accent-gold); }
@@ -72,49 +70,49 @@
         .border-accent-gold { border-color: var(--color-accent-gold); }
         .hover\:bg-accent-gold:hover { background-color: var(--color-accent-gold); }
         .shadow-subtle { box-shadow: var(--shadow-subtle); }
-        .rounded-xl { border-radius: var(--border-radius-lg); } /* Использование новой переменной */
+        .rounded-xl { border-radius: var(--border-radius-lg); }
 
         /* Утонченный разделитель с казахским орнаментом */
         .ornament-divider {
             position: relative;
             height: 1px;
             background-color: var(--color-accent-beige);
-            margin: 5rem auto; /* Оптимизировано вертикальное пространство */
-            max-width: 70%; /* Увеличена ширина для лучшего баланса */
+            margin: 5rem auto;
+            max-width: 70%;
             opacity: 0.8;
-            overflow: visible; /* Разрешаем элементам выходить за границы */
+            overflow: visible;
         }
         .ornament-divider::before,
         .ornament-divider::after {
             content: '';
             position: absolute;
             top: 50%;
-            width: 24px; /* Размер орнамента */
+            width: 24px;
             height: 24px;
             background-color: var(--color-accent-gold);
             transform: translateY(-50%) rotate(45deg);
             border: 1px solid var(--color-accent-beige);
-            border-radius: 4px; /* Более мягкие углы */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* Менее выраженная тень для объема */
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.15);
         }
         .ornament-divider::before {
             left: 50%;
-            margin-left: -60px; /* Оптимизированное расстояние */
+            margin-left: -60px;
         }
         .ornament-divider::after {
             left: 50%;
-            margin-left: 35px; /* Оптимизированное расстояние */
+            margin-left: 35px;
         }
 
         /* Фоновые секции с улучшенным параллаксом */
         .section-background {
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat; /* Убираем повторение фона */
-            background-attachment: fixed; /* Для параллакса */
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             color: var(--color-text-light);
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.85); /* Чуть менее выраженная тень текста для читаемости */
-            padding: 10rem 0; /* Оптимизировано внутреннее пространство */
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.8);
+            padding: 10rem 0;
             position: relative;
             overflow: hidden;
             display: flex;
@@ -124,23 +122,24 @@
         .section-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(0,0,0,0.6); /* Чуть светлее overlay для лучшего баланса с фоном */
+            background-color: rgba(0,0,0,0.55); /* Чуть светлее overlay для лучшего баланса с фоном */
             z-index: 0;
         }
         .section-content {
             position: relative;
             z-index: 1;
-            padding: 2.5rem; /* Большой отступ */
-            max-width: 90%; /* Адаптивность контента */
+            padding: 2.5rem;
+            max-width: 90%;
             background-color: rgba(255,255,255,0.08); /* Легкий эффект "стекла" */
-            backdrop-filter: blur(6px); /* Стеклоэффект */
-            border: 1px solid rgba(255,255,255,0.15); /* Тонкая рамка "стекла" */
-            box-shadow: 0 0 30px rgba(0,0,0,0.25); /* Более умеренная тень для эффекта глубины */
+            backdrop-filter: blur(8px); /* Увеличенный блюр для стеклоэффекта */
+            border: 1px solid rgba(255,255,255,0.15);
+            box-shadow: 0 0 30px rgba(0,0,0,0.2);
+            border-radius: var(--border-radius-lg); /* Используем переменную */
         }
 
         /* Пользовательский скроллбар */
         ::-webkit-scrollbar {
-            width: 8px; /* Немного тоньше */
+            width: 8px;
         }
         ::-webkit-scrollbar-track {
             background: var(--color-secondary);
@@ -150,14 +149,14 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #a08c5c;
+            background: #8e7a46; /* Темнее золото при наведении */
         }
 
         /* Анимации появления - кинематографический стиль */
         .fade-in-up {
             opacity: 0;
-            transform: translateY(60px); /* Меньшее смещение для драматичности */
-            transition: opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1), transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateY(60px);
+            transition: opacity 1.2s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
         }
         .fade-in-up.active {
             opacity: 1;
@@ -167,38 +166,38 @@
         /* Улучшенная анимация для логотипа пары */
         .couple-logo {
             font-family: 'Playfair Display', serif;
-            font-size: 8rem; /* Оптимизированный размер для Hero */
+            font-size: 8rem;
             font-weight: 700;
-            line-height: 0.8; /* Плотнее */
-            letter-spacing: 0.12em; /* Выраженный межбуквенный интервал */
+            line-height: 0.8;
+            letter-spacing: 0.12em;
             color: var(--color-text-light);
             position: relative;
-            display: flex; /* Используем flex для расположения имен и амперсанда */
+            display: flex;
             justify-content: center;
             align-items: center;
-            padding-bottom: 0.2em; /* Меньший нижний паддинг */
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Более умеренная тень */
-            overflow: hidden; /* Скрываем части текста до анимации */
-            margin-bottom: 1rem; /* Уменьшил отступ снизу для более плотного расположения */
+            padding-bottom: 0.2em;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            overflow: hidden;
+            margin-bottom: 1rem;
         }
-        .couple-logo > div { /* Обертка для каждого имени и амперсанда */
-            display: inline-block; /* Позволяет применять transform к каждому элементу */
+        .couple-logo > div {
+            display: inline-block;
             opacity: 0;
-            transform: translateY(100%); /* Сдвигаем вниз для появления */
+            transform: translateY(100%);
             transition: opacity 0.8s cubic-bezier(0.23, 1, 0.32, 1), transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .couple-logo.active > div:nth-child(1) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); } /* Idris */
-        .couple-logo.active > div:nth-child(2) { transition-delay: 0.6s; font-size: 0.4em; color: var(--color-accent-gold); transform: translateY(0); opacity: 1; } /* & */
-        .couple-logo.active > div:nth-child(3) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); } /* Nuraiym */
+        .couple-logo.active > div:nth-child(1) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+        .couple-logo.active > div:nth-child(2) { transition-delay: 0.6s; font-size: 0.4em; color: var(--color-accent-gold); transform: translateY(0); opacity: 1; }
+        .couple-logo.active > div:nth-child(3) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); }
 
         /* Общие стили для новых текстовых элементов в Hero Section */
         .hero-subtitle,
         .hero-details {
-            font-family: 'Playfair Display', serif; /* Используем тот же элегантный шрифт */
-            letter-spacing: 0.08em; /* Более выраженный межбуквенный интервал */
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Мягкая тень для читаемости */
-            opacity: 0; /* Изначально скрыты для анимации */
-            transform: translateY(30px); /* Смещение для появления */
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 0.08em;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+            opacity: 0;
+            transform: translateY(30px);
             transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
         /* Анимации для новых элементов Hero Section */
@@ -209,31 +208,31 @@
         /* Анимация таймера обратного отсчета */
         .countdown-digit-wrapper {
             perspective: 1000px;
-            background-color: rgba(28, 28, 28, 0.75); /* Фон таймера - темный, но с прозрачностью */
+            background-color: rgba(28, 28, 28, 0.7); /* Фон таймера - темный, но с прозрачностью */
             border: 1px solid var(--color-accent-gold); /* Утонченная золотая рамка */
-            box-shadow: 0 3px 10px rgba(0,0,0,0.25); /* Более умеренная тень */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25); /* Более умеренная тень */
             border-radius: var(--border-radius-lg);
-            padding: 1.5rem 1rem; /* Увеличенные отступы внутри */
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Плавный переход для hover */
+            padding: 1.5rem 1rem;
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
         }
         .countdown-digit-wrapper:hover {
             transform: translateY(-3px) scale(1.01);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         .countdown-digit {
-            transition: transform 0.5s ease-out, opacity 0.5s ease-out; /* Более плавная анимация */
+            transition: transform 0.5s ease-out, opacity 0.5s ease-out;
             display: inline-block;
             color: var(--color-accent-gold);
         }
         .countdown-label {
             color: var(--color-text-light);
             font-weight: 500;
-            margin-top: 0.5rem; /* Увеличенный отступ */
-            font-size: 1em; /* Чуть крупнее */
-            letter-spacing: 0.04em; /* Добавлен межбуквенный интервал */
+            margin-top: 0.5rem;
+            font-size: 1em;
+            letter-spacing: 0.04em;
         }
         .countdown-digit.animate-flip {
-            animation: flip-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards; /* Более плавная и длинная анимация flip */
+            animation: flip-in 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
         }
         @keyframes flip-in {
             0% { transform: rotateX(-90deg) scale(0.8); opacity: 0; }
@@ -243,37 +242,45 @@
         /* Стилизация 2GIS логотипа */
         .2gis-logo-container {
             transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            background-color: var(--color-secondary); /* Фон для контейнера 2ГИС */
         }
         .2gis-logo-container:hover {
             transform: scale(1.03);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        /* Стилизация кнопок и полей ввода */
+        /* Стилизация кнопок и полей ввода (Soft UI) */
         button {
             transition: all 0.2s ease-in-out;
-            box-shadow: var(--shadow-subtle);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Мягкая тень для кнопок */
         }
         button:hover {
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            transform: translateY(-1px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px); /* Легкое смещение вверх */
         }
         input[type="text"], textarea {
-            background-color: rgba(255, 255, 255, 0.85); /* Чуть менее прозрачный белый фон */
+            background-color: var(--color-secondary); /* Светлый фон */
             border: 1px solid var(--color-accent-beige);
-            box-shadow: inset 0 1px 2px rgba(0,0,0,0.03); /* Менее выраженная внутренняя тень */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05); /* Легкая внутренняя тень */
             transition: all 0.2s ease-in-out;
         }
         input[type="radio"] {
-            border: 1.5px solid var(--color-accent-gold); /* Золотая рамка для радио-кнопок */
-            background-color: var(--color-secondary); /* Светлый фон */
+            border: 1.5px solid var(--color-accent-gold);
+            background-color: var(--color-secondary);
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             position: relative;
+            cursor: pointer;
+            width: 18px; /* Увеличил размер */
+            height: 18px;
+            min-width: 18px; /* Фиксированный размер */
+            min-height: 18px; /* Фиксированный размер */
+            border-radius: 50%;
+            transition: all 0.2s ease-in-out;
         }
         input[type="radio"]:checked {
-            background-color: var(--color-accent-gold); /* Золотой при выборе */
+            background-color: var(--color-accent-gold);
             border-color: var(--color-accent-gold);
         }
         input[type="radio"]:checked:after {
@@ -282,14 +289,15 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 7px; /* Внутренняя точка */
-            height: 7px;
+            width: 8px; /* Внутренняя точка чуть больше */
+            height: 8px;
             border-radius: 50%;
-            background-color: var(--color-secondary); /* Белая точка */
+            background-color: var(--color-secondary);
         }
         input[type="text"]:focus, textarea:focus {
-            background-color: var(--color-secondary); /* Полностью белый при фокусе */
-            box-shadow: 0 0 0 2px rgba(192, 160, 106, 0.2); /* Золотое свечение */
+            background-color: var(--color-text-light); /* Чуть светлее при фокусе */
+            box-shadow: 0 0 0 3px rgba(160, 134, 75, 0.25); /* Золотое свечение, чуть больше */
+            border-color: var(--color-accent-gold);
         }
         .modal { /* Стилизация модального окна */
             position: fixed;
@@ -322,6 +330,9 @@
             transform: translateY(-20px);
             opacity: 0;
             transition: transform 0.3s ease, opacity 0.3s ease;
+            max-height: 90vh; /* Разрешаем внутреннюю прокрутку модального окна */
+            overflow-y: auto; /* Добавляет прокрутку, если содержимое выходит за пределы */
+            -webkit-overflow-scrolling: touch; /* Улучшение скролла на iOS */
         }
         .modal.open .modal-content {
             transform: translateY(0);
@@ -338,6 +349,11 @@
             color: var(--color-primary);
             padding: 0.5rem;
             line-height: 1;
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .modal-close:hover {
+            transform: rotate(90deg);
+            color: var(--color-accent-gold);
         }
         /* Стили для лоадера */
         .loader {
@@ -363,24 +379,25 @@
             }
             h1, h2, h3, h4, h5, h6 {
                 letter-spacing: 0.03em;
+                text-shadow: none; /* Убираем тень на мобильных для читаемости */
             }
 
             .ornament-divider {
-                margin: 4rem auto; /* Меньше на мобильных */
+                margin: 4rem auto;
                 max-width: 90%;
             }
             .ornament-divider::before,
             .ornament-divider::after {
-                width: 16px; /* Меньше орнамент */
+                width: 16px;
                 height: 16px;
-                margin-left: -30px; /* Ближе друг к другу */
+                margin-left: -30px;
             }
             .ornament-divider::after {
                 margin-left: 14px;
             }
 
             .section-background {
-                padding: 8rem 0; /* Меньше padding на мобильных */
+                padding: 8rem 0;
                 background-attachment: scroll; /* Отключаем parallax на мобильных для производительности */
             }
             .section-overlay {
@@ -388,13 +405,13 @@
             }
             .section-content {
                 padding: 1.5rem;
-                border-radius: 0.75rem; /* Меньше скругление */
+                border-radius: 0.75rem;
                 backdrop-filter: blur(4px); /* Меньше блюр */
             }
 
             .nav-link {
                 margin: 0.2rem 0.5rem;
-                font-size: 0.75rem;
+                font-size: 0.85rem; /* Немного крупнее */
             }
 
             .couple-logo {
@@ -402,6 +419,7 @@
                 letter-spacing: 0.08em;
                 margin-bottom: 1.5rem;
                 padding-bottom: 0.4em;
+                text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Меньше тень */
             }
             /* Адаптация для мобильных логотипа */
             .couple-logo > div {
@@ -412,71 +430,85 @@
 
 
             .text-xl.md\:text-3xl { font-size: 1.2rem; }
-            .text-lg.md\:text-2xl { font-size: 1rem; }
-            .text-2xl.md\:text-4xl { font-size: 1.25rem; }
+            .text-lg.md\:text-2xl { font-size: 1.1rem; } /* Чуть крупнее */
+            .text-2xl.md\:text-4xl { font-size: 1.6rem; } /* Чуть крупнее */
 
             .countdown-digit-wrapper {
                 padding: 0.75rem 0.4rem;
                 border-radius: 0.75rem;
-                border: 1px solid var(--color-accent-gold); /* Тоньше рамка */
+                border: 1px solid var(--color-accent-gold);
             }
             .countdown-digit {
-                font-size: 2.2rem;
+                font-size: 2.5rem; /* Чуть крупнее */
             }
             .countdown-label {
-                font-size: 0.8rem;
+                font-size: 0.9rem; /* Чуть крупнее */
                 margin-top: 0.25rem;
             }
             .modal-content {
-                padding: 1.25rem;
+                padding: 1.5rem;
                 border-radius: 1rem;
             }
             .modal-close {
-                font-size: 1.2rem;
-                top: 0.5rem;
-                right: 0.5rem;
+                font-size: 1.4rem;
+                top: 0.75rem;
+                right: 0.75rem;
             }
             .text-lg.font-medium {
-                font-size: 0.85rem;
+                font-size: 0.95rem; /* Чуть крупнее */
             }
             button {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.9rem;
+                padding: 0.85rem 1.6rem; /* Чуть больше */
+                font-size: 0.95rem; /* Чуть крупнее */
             }
             .bg-accent-gold.text-white.px-8.py-3 { /* Специфично для LLM кнопки */
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
+                padding: 0.7rem 1.3rem; /* Чуть больше */
+                font-size: 0.9rem; /* Чуть крупнее */
+            }
+            input[type="text"], textarea {
+                font-size: 0.95rem; /* Чуть крупнее */
+                padding: 0.8rem;
+            }
+            input[type="radio"] {
+                width: 16px;
+                height: 16px;
+                min-width: 16px;
+                min-height: 16px;
+            }
+            input[type="radio"]:checked:after {
+                width: 7px;
+                height: 7px;
             }
         }
 
         @media (max-width: 480px) {
             .couple-logo {
-                font-size: 2.5rem;
-                letter-spacing: 0.04em;
+                font-size: 2.8rem;
+                letter-spacing: 0.05em;
                 margin-bottom: 1rem;
             }
             .couple-logo span {
                 font-size: 0.38em;
             }
             .text-xl.md\:text-3xl { font-size: 1.1rem; }
-            .text-lg.md\:text-2xl { font-size: 0.9rem; }
-            .text-2xl.md\:text-4xl { font-size: 1.1rem; }
+            .text-lg.md\:text-2xl { font-size: 1rem; }
+            .text-2xl.md\:text-4xl { font-size: 1.4rem; }
 
             .countdown-digit {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
             .countdown-label {
-                font-size: 0.75rem;
+                font-size: 0.85rem;
             }
             .nav-link {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
                 margin: 0.15rem 0.3rem;
             }
             .ornament-divider {
                 margin: 3rem auto;
             }
             .modal-content {
-                padding: 0.8rem;
+                padding: 1rem;
             }
         }
     </style>
@@ -522,7 +554,7 @@
         <div class="section-overlay"></div>
         <div class="section-content relative z-10 max-w-4xl mx-auto stagger-fade-in rounded-xl">
             <!-- Визуальный текстовый логотип пары -->
-            <h1 class="couple-logo mb-4"> <!-- Уменьшил mb, чтобы сократить пустое пространство -->
+            <h1 class="couple-logo mb-4">
                 <div>Idris</div><div>&</div><div>Nuraiym</div>
             </h1>
 
@@ -531,14 +563,8 @@
                 <span class="text-accent-gold">11.07.2025</span> | <span class="text-accent-gold">Дулат</span>
             </p>
 
-            <!-- Оригинальный пригласительный текст, если нужно, можно его адаптировать и оставить -->
             <p class="text-xl md:text-3xl text-white mb-6">Сіздерді біздің үйлену тойымызға арналған</p>
             <p class="text-lg md:text-2xl text-white mb-8">салтанатты кешке шақырамыз!</p>
-
-            <!-- Оригинальные строки с датой/временем/местом, которые теперь частично интегрированы -->
-            <!-- <p class="text-2xl md:text-4xl text-white font-semibold">2025 жыл 11 шілде</p> -->
-            <!-- <p class="text-lg md:text-2xl text-white">Сағат 18:00</p> -->
-            <!-- <p class="text-lg md:text-2xl text-accent-gold mt-4">Ақтөбе қаласы, "Дулат" мейрамханасы</p> -->
         </div>
     </section>
 
@@ -625,7 +651,7 @@
                 <img src="images.png"
                      alt="2GIS картасына сілтеме"
                      class="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-contain p-4 transition duration-300 group-hover:scale-105"
-                     onerror="this.onerror=null;this.src='https://placehold.co/320x320/F8F5EF/C0A06A?text=2GIS%20Карта%0AБасу%20үшін';">
+                     onerror="this.onerror=null;this.src='https://placehold.co/320x320/F7F7F7/A0864B?text=2GIS%20Карта%0AБасу%20үшін';">
             </a>
             <p class="text-sm text-gray-600 mt-4">
                 Картаны ашу үшін басыңыз (2GIS)
@@ -824,7 +850,7 @@
                 Хикаяны көшіру
             </button>
         </div>
-    </div>
+    </divь>
 
 
     <script>
@@ -1170,7 +1196,7 @@
         callGeminiStoryBtn.addEventListener('click', async () => {
             const keywords = storyKeywordsInput.value.trim();
             const coupleNames = "Idris пен Nuraiym"; // Изменено на латиницу
-            const prompt = `"${coupleNames}" жұбы үшін келесі кілт сөздерге негізделген қысқа, әдемі, эмоционалды және поэтикалық махаббат хикаясын жазыңыз: "${keywords}". Егер кілт сөздер көрсетілмесе, олардың бірегейлігі мен терең байланысын көрсететін жалпы романтикалық хикая жасаңыз. Хикая үйлену тойына арналған сайтқа сәйкес ресми, бірақ жылы стильде болуы керек. Жауап қазақ тілінде болуы керек.`;
+            const prompt = `"${coupleNames}" жұбы үшін келесі кілт сөздерге негізделген қысқа, әдемі, эмоционалды және поэтикалық махаббат хикаясын жазыңыз: "${keywords}". Егер кілт сөздер көрсетілмесе, олардың бірегейлігі мен терең байланысын көрсететін жалпы романтикалық хикая жасаңыз. Хикая үйлену тойына арналған сайтқа сәйкес ресми стильде болуы керек. Жауап қазақ тілінде болуы керек.`;
 
             storyOutput.innerHTML = '<div class="loader"></div><p class="text-accent-gold italic mt-2">Хикая жасалуда...</p>';
             copyStoryButton.classList.add('hidden');
