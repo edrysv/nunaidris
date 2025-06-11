@@ -7,7 +7,7 @@
     <!-- Мета-описание для SEO -->
     <meta name="description" content="Идрис пен Нурайымның үйлену тойына арналған ресми шақыру сайты. Той салтанатының бағдарламасы, мекенжайы, таймер және келуді растау формасы.">
     <!-- Open Graph мета-теги для социальных сетей -->
-    <meta property="og:title" content="Идрис & Нурайым - Үйлену Той Шақыруы">
+    <meta property="og:title" content="Idris & Nuraiym - Үйлену Той Шақыруы">
     <meta property="og:description" content="Сіздерді Идрис пен Нурайымның ерекше күніне, үйлену тойына шақырамыз!">
     <meta property="og:image" content="clKMZMS9gt63Hak9C6JbCKhuSdM6uXNj9uoKzblN.png"> <!-- Пример изображения для OG, желательно использовать квадратное 1200x630px -->
     <meta property="og:url" content="ВАШ_URL_САЙТА_ЗДЕСЬ">
@@ -191,16 +191,18 @@
         .couple-logo.active > div:nth-child(3) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); } /* Nuraiym */
 
         /* Для общего stagger-fade-in анимации остальных элементов Hero */
+        /* Начинаем отсчет задержек для остальных элементов после завершения анимации логотипа */
         .stagger-fade-in > *:not(.couple-logo) {
             opacity: 0;
             transform: translateY(60px); /* Меньшее смещение */
             transition: opacity 1.8s cubic-bezier(0.23, 1, 0.32, 1), transform 1.8s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        .stagger-fade-in.active > *:nth-child(4) { --delay: 1.5s; opacity: 1; transform: translateY(0); } /* Сіздерді... */
-        .stagger-fade-in.active > *:nth-child(5) { --delay: 1.8s; opacity: 1; transform: translateY(0); } /* салтанатты... */
-        .stagger-fade-in.active > *:nth-child(6) { --delay: 2.1s; opacity: 1; transform: translateY(0); } /* Дата */
-        .stagger-fade-in.active > *:nth-child(7) { --delay: 2.4s; opacity: 1; transform: translateY(0); } /* Время */
-        .stagger-fade-in.active > *:nth-child(8) { --delay: 2.7s; opacity: 1; transform: translateY(0); } /* Место */
+        /* Перенастроил задержки для других элементов в Hero, чтобы они начинались после логотипа */
+        .stagger-fade-in.active > p:nth-of-type(1) { transition-delay: 1.2s; opacity: 1; transform: translateY(0); } /* Сіздерді... */
+        .stagger-fade-in.active > p:nth-of-type(2) { transition-delay: 1.5s; opacity: 1; transform: translateY(0); } /* салтанатты... */
+        .stagger-fade-in.active > p:nth-of-type(3) { transition-delay: 1.8s; opacity: 1; transform: translateY(0); } /* Дата */
+        .stagger-fade-in.active > p:nth-of-type(4) { transition-delay: 2.1s; opacity: 1; transform: translateY(0); } /* Время */
+        .stagger-fade-in.active > p:nth-of-type(5) { transition-delay: 2.4s; opacity: 1; transform: translateY(0); } /* Место */
 
 
         /* Анимация таймера обратного отсчета */
@@ -400,9 +402,6 @@
                 margin-bottom: 1.5rem;
                 padding-bottom: 0.4em;
             }
-            .couple-logo span {
-                font-size: 0.45em;
-            }
             /* Адаптация для мобильных логотипа */
             .couple-logo > div {
                  transform: translateY(0); /* На мобильных не нужно смещение в начале */
@@ -522,8 +521,8 @@
         <div class="section-overlay"></div>
         <div class="section-content relative z-10 max-w-4xl mx-auto stagger-fade-in rounded-xl">
             <!-- Визуальный текстовый логотип пары -->
-            <h1 class="couple-logo mb-12">
-                <div>Идрис</div><div>&</div><div>Нурайым</div>
+            <h1 class="couple-logo mb-8"> <!-- Уменьшил mb, чтобы сократить пустое пространство -->
+                <div>Idris</div><div>&</div><div>Nuraiym</div>
             </h1>
 
             <p class="text-xl md:text-3xl text-white mb-6">Сіздерді біздің үйлену тойымызға арналған</p>
@@ -770,7 +769,7 @@
 
     <!-- Подвал сайта -->
     <footer class="bg-primary text-white py-8 text-center">
-        <p class="text-lg">&copy; 2025 Идрис & Нурайым. Барлық құқықтар қорғалған.</p>
+        <p class="text-lg">&copy; 2025 Idris & Nuraiym. Барлық құқықтар қорғалған.</p>
         <p class="text-sm mt-2 text-accent-beige">Ерекше күнімізді бірге тойлайық!</p>
     </footer>
 
@@ -787,7 +786,7 @@
                     class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
                 Жасау
             </button>
-            <div id="wish-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[80px] flex items-center justify-center text-center text-gray-700 text-base italic">
+            <div id="wish-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[80px] flex items-center justify-center text-center text-gray-700 text-base italic" style="max-height: 80vh; overflow-y: auto;">
                 Сіздің тілегіңіз осы жерде болады...
             </div>
             <button id="copy-wish-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
@@ -800,7 +799,7 @@
     <div id="love-story-modal" class="modal hidden">
         <div class="modal-content">
             <button class="modal-close" id="close-love-story-modal">&times;</button>
-            <h3 class="text-3xl font-bold mb-6 text-primary">Идрис пен Нурайымның махаббат хикаясын жасаңыз</h3>
+            <h3 class="text-3xl font-bold mb-6 text-primary">Idris пен Nuraiymның махаббат хикаясын жасаңыз</h3>
             <div class="mb-4 text-left">
                 <label for="story-keywords" class="block text-gray-700 text-base font-medium mb-2">Олардың танысуының негізгі сәттерін, маңызды күндерін немесе ортақ қызығушылықтарын сипаттаңыз (мысалы: 'университетте танысты, мысықтарды жақсы көреді, Азияға саяхат'):</label>
                 <textarea id="story-keywords" rows="4" class="w-full px-4 py-2 rounded-md border border-accent-beige focus:outline-none focus:ring-2 focus:ring-accent-gold focus:border-transparent text-base"></textarea>
@@ -809,7 +808,7 @@
                     class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
                 Хикаяны жасау
             </button>
-            <div id="story-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[120px] flex items-center justify-center text-center text-gray-700 text-base italic overflow-y-auto max-h-64">
+            <div id="story-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[120px] flex items-center justify-center text-center text-gray-700 text-base italic overflow-y-auto max-h-64" style="max-height: 80vh; overflow-y: auto;">
                 Махаббат хикаясы осы жерде болады...
             </div>
             <button id="copy-story-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
@@ -925,6 +924,23 @@
         const musicToggle = document.getElementById('music-toggle');
         const musicIcon = document.getElementById('music-icon');
         let isPlaying = false; // Изначально музыка не играет
+
+        // Попытка автоматического воспроизведения при первом взаимодействии с документом
+        // (Это лучшее, что можно сделать с учетом ограничений браузеров на автоплей)
+        document.addEventListener('click', function attemptPlayMusic() {
+            if (!isPlaying) {
+                music.play().then(() => {
+                    isPlaying = true;
+                    musicIcon.classList.remove('fa-play');
+                    musicIcon.classList.add('fa-pause');
+                    document.removeEventListener('click', attemptPlayMusic); // Удаляем обработчик после успешного запуска
+                }).catch(e => {
+                    console.warn("Автовоспроизведение заблокировано или не удалось:", e);
+                    // showCustomAlert('Музыканы ойнату мүмкін болмады. Браузеріңіз автоматты ойнатуға рұқсат бермеуі мүмкін.');
+                    // Пользователь все еще может нажать на кнопку play/pause
+                });
+            }
+        }, { once: true }); // Добавляем { once: true } чтобы обработчик сработал только один раз
 
         musicToggle.addEventListener('click', function() {
             if (isPlaying) {
@@ -1144,7 +1160,7 @@
 
         callGeminiStoryBtn.addEventListener('click', async () => {
             const keywords = storyKeywordsInput.value.trim();
-            const coupleNames = "Идрис пен Нурайым";
+            const coupleNames = "Idris пен Nuraiym"; // Изменено на латиницу
             const prompt = `"${coupleNames}" жұбы үшін келесі кілт сөздерге негізделген қысқа, әдемі, эмоционалды және поэтикалық махаббат хикаясын жазыңыз: "${keywords}". Егер кілт сөздер көрсетілмесе, олардың бірегейлігі мен терең байланысын көрсететін жалпы романтикалық хикая жасаңыз. Хикая үйлену тойына арналған сайтқа сәйкес ресми, бірақ жылы стильде болуы керек. Жауап қазақ тілінде болуы керек.`;
 
             storyOutput.innerHTML = '<div class="loader"></div><p class="text-accent-gold italic mt-2">Хикая жасалуда...</p>';
