@@ -179,6 +179,7 @@
             padding-bottom: 0.2em; /* Меньший нижний паддинг */
             text-shadow: 2px 2px 10px rgba(0,0,0,0.5); /* Более умеренная тень */
             overflow: hidden; /* Скрываем части текста до анимации */
+            margin-bottom: 1rem; /* Уменьшил отступ снизу для более плотного расположения */
         }
         .couple-logo > div { /* Обертка для каждого имени и амперсанда */
             display: inline-block; /* Позволяет применять transform к каждому элементу */
@@ -190,19 +191,19 @@
         .couple-logo.active > div:nth-child(2) { transition-delay: 0.6s; font-size: 0.4em; color: var(--color-accent-gold); transform: translateY(0); opacity: 1; } /* & */
         .couple-logo.active > div:nth-child(3) { transition-delay: 0.9s; opacity: 1; transform: translateY(0); } /* Nuraiym */
 
-        /* Для общего stagger-fade-in анимации остальных элементов Hero */
-        /* Начинаем отсчет задержек для остальных элементов после завершения анимации логотипа */
-        .stagger-fade-in > *:not(.couple-logo) {
-            opacity: 0;
-            transform: translateY(60px); /* Меньшее смещение */
-            transition: opacity 1.8s cubic-bezier(0.23, 1, 0.32, 1), transform 1.8s cubic-bezier(0.23, 1, 0.32, 1);
+        /* Общие стили для новых текстовых элементов в Hero Section */
+        .hero-subtitle,
+        .hero-details {
+            font-family: 'Playfair Display', serif; /* Используем тот же элегантный шрифт */
+            letter-spacing: 0.08em; /* Более выраженный межбуквенный интервал */
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.4); /* Мягкая тень для читаемости */
+            opacity: 0; /* Изначально скрыты для анимации */
+            transform: translateY(30px); /* Смещение для появления */
+            transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1s cubic-bezier(0.23, 1, 0.32, 1);
         }
-        /* Перенастроил задержки для других элементов в Hero, чтобы они начинались после логотипа */
-        .stagger-fade-in.active > p:nth-of-type(1) { transition-delay: 1.2s; opacity: 1; transform: translateY(0); } /* Сіздерді... */
-        .stagger-fade-in.active > p:nth-of-type(2) { transition-delay: 1.5s; opacity: 1; transform: translateY(0); } /* салтанатты... */
-        .stagger-fade-in.active > p:nth-of-type(3) { transition-delay: 1.8s; opacity: 1; transform: translateY(0); } /* Дата */
-        .stagger-fade-in.active > p:nth-of-type(4) { transition-delay: 2.1s; opacity: 1; transform: translateY(0); } /* Время */
-        .stagger-fade-in.active > p:nth-of-type(5) { transition-delay: 2.4s; opacity: 1; transform: translateY(0); } /* Место */
+        /* Анимации для новых элементов Hero Section */
+        .stagger-fade-in.active .hero-subtitle { transition-delay: 1.2s; opacity: 1; transform: translateY(0); }
+        .stagger-fade-in.active .hero-details { transition-delay: 1.5s; opacity: 1; transform: translateY(0); }
 
 
         /* Анимация таймера обратного отсчета */
@@ -521,15 +522,23 @@
         <div class="section-overlay"></div>
         <div class="section-content relative z-10 max-w-4xl mx-auto stagger-fade-in rounded-xl">
             <!-- Визуальный текстовый логотип пары -->
-            <h1 class="couple-logo mb-8"> <!-- Уменьшил mb, чтобы сократить пустое пространство -->
+            <h1 class="couple-logo mb-4"> <!-- Уменьшил mb, чтобы сократить пустое пространство -->
                 <div>Idris</div><div>&</div><div>Nuraiym</div>
             </h1>
 
+            <p class="hero-subtitle text-2xl md:text-4xl text-white mb-4 font-semibold">Wedding Day</p>
+            <p class="hero-details text-xl md:text-3xl text-white mb-8 font-medium">
+                <span class="text-accent-gold">11.07.2025</span> | <span class="text-accent-gold">Дулат</span>
+            </p>
+
+            <!-- Оригинальный пригласительный текст, если нужно, можно его адаптировать и оставить -->
             <p class="text-xl md:text-3xl text-white mb-6">Сіздерді біздің үйлену тойымызға арналған</p>
             <p class="text-lg md:text-2xl text-white mb-8">салтанатты кешке шақырамыз!</p>
-            <p class="text-2xl md:text-4xl text-white font-semibold">2025 жыл 11 шілде</p>
-            <p class="text-lg md:text-2xl text-white">Сағат 18:00</p>
-            <p class="text-lg md:text-2xl text-accent-gold mt-4">Ақтөбе қаласы, "Дулат" мейрамханасы</p>
+
+            <!-- Оригинальные строки с датой/временем/местом, которые теперь частично интегрированы -->
+            <!-- <p class="text-2xl md:text-4xl text-white font-semibold">2025 жыл 11 шілде</p> -->
+            <!-- <p class="text-lg md:text-2xl text-white">Сағат 18:00</p> -->
+            <!-- <p class="text-lg md:text-2xl text-accent-gold mt-4">Ақтөбе қаласы, "Дулат" мейрамханасы</p> -->
         </div>
     </section>
 
@@ -786,7 +795,7 @@
                     class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
                 Жасау
             </button>
-            <div id="wish-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[80px] flex items-center justify-center text-center text-gray-700 text-base italic" style="max-height: 80vh; overflow-y: auto;">
+            <div id="wish-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[80px] flex items-center justify-center text-center text-gray-700 text-base italic" style="max-height: 70vh; overflow-y: auto;">
                 Сіздің тілегіңіз осы жерде болады...
             </div>
             <button id="copy-wish-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
@@ -808,7 +817,7 @@
                     class="bg-primary text-white px-6 py-2 rounded-full shadow-md hover:bg-gray-800 transition duration-300 text-base font-semibold transform hover:scale-105 mb-4">
                 Хикаяны жасау
             </button>
-            <div id="story-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[120px] flex items-center justify-center text-center text-gray-700 text-base italic overflow-y-auto max-h-64" style="max-height: 80vh; overflow-y: auto;">
+            <div id="story-output" class="bg-gray-100 p-4 rounded-md border border-accent-beige min-h-[120px] flex items-center justify-center text-center text-gray-700 text-base italic" style="max-height: 70vh; overflow-y: auto;">
                 Махаббат хикаясы осы жерде болады...
             </div>
             <button id="copy-story-button" class="bg-accent-gold text-white px-6 py-2 rounded-full shadow-md hover:bg-opacity-90 transition duration-300 text-base font-semibold mt-4 hidden">
